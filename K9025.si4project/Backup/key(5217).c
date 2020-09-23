@@ -4,7 +4,7 @@
 u8 calibration_std = 0;
 #define KEY_PRESS_TIME 700
 
-void key_init(void)
+void key_init ( void )
 {
 	P3M5 = 0x61;                        //P35设置为非施密特数字带上拉输入
 	P2M5 = 0x61;                        //P25设置为非施密特数字带上拉输入

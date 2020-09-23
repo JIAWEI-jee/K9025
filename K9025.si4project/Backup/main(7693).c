@@ -196,14 +196,14 @@ u16 temp_calc ( u16 uR510,u16 uRw )
 	{
 
 		i =  u1 - Temperature_Value;
-		i= i/2.25;
+		i= i/2.16;
 		basi_tmp = basi_tmp + i;
 		//gm_printf("basi_up20 = %d \r\n",basi_tmp);
 	}
 	else
 	{
 		i =Temperature_Value - u1;
-		i= i/2.25;
+		i= i/2.16;
 		if ( i > 20 )
 		{
 			i = 20;
@@ -247,7 +247,7 @@ void temperature_handle ( void )
 					if ( temp > 50 )
 					{
 						Heat_start_std = 2;
-						Open_Heat_Value = corrected_value_GAP_6_temp;
+						Open_Heat_Value = corrected_value_GAP_9_temp	;
 					}
 					else
 					{
@@ -271,11 +271,10 @@ void temperature_handle ( void )
 					cali_display_std = 1;
 				}
 				else
-				{	
-				set_pwm ( 0 );
-				ht1621_send_cmd ( LCD_OFF );
-					cali_display_std = 0;
-				}	
+				{
+					set_pwm ( 0 );
+					ht1621_send_cmd ( LCD_OFF );
+				}
 			}
 			fault_std = 0;
 		}
@@ -311,9 +310,7 @@ void main ( void )
 	pwm_init ( 200 );
 	init_lcd_ht1621b();
 	delay_ms ( 800 );
-	ht1621_all_clear(); 
-	lcd_display_gap ( GAP_4 );
-	delay_ms ( 500 );
+	//ht1621_all_clear(); //消除鬼影
 	wdt_init ( 2 );
 	set_pwm ( 0 );
 	gm_printf ( "\r\n==================================\r\n" );
@@ -328,7 +325,7 @@ void main ( void )
 		key_handle();
 		temperature_handle();
 		// Protect();
-
+		//uart_handle();
 		clear_wdt();
 
 	}

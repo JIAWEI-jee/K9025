@@ -18,10 +18,10 @@ extern u8 calibration_std;
 #define KEY_STATE_1         1
 #define KEY_STATE_2         2
 #define KEY_STATE_3         3
-
+ 
 #define LONG_KEY_TIME       120    //长按时间
 #define SINGLE_KEY_TIME     3      // 短按时间
-
+ 
 #define N_KEY         0             // 没有案件按下
 
 #define KEY_1_SHORT  4
@@ -32,8 +32,8 @@ extern u8 calibration_std;
 #define KEY_CALI2_LONG       6
 #define KEY_CALI3_LONG       7
 
-void key_init ( void );
-u8 key_scan ( void );
+void key_init(void);
+u8 key_scan(void);
 
 #endif
 

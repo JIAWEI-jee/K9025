@@ -228,8 +228,3 @@ void lcd_display_gap ( u8 gap )
 	
 }
 
-//
-//void flick(void)
-//{
-//
-//}
